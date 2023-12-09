@@ -100,14 +100,11 @@ DJANGO_ADMIN_LOGS_ENABLE = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'propertyDB',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'Nsi8X3BrmKTp',
+        'HOST': 'ep-late-boat-70916267.ap-southeast-1.postgres.vercel-storage.com',
         'PORT': '5432',
-        'OPTIONS': {
-            'options': '-c search_path=public',
-        },
     }
 }
 
@@ -160,3 +157,4 @@ STATICFILES_DIRS = [
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
