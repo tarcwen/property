@@ -24,7 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '($wlb^0$advkr!ek74$_q5hdgdhua9vvsfh^+g(h9-m=5@jbij'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+SITE_ID = 1
 
 ALLOWED_HOSTS = ['*']
 
@@ -107,6 +109,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / "backup/"}
+
+CRONJOBS = [
+    ('0 0 * * *', 'property.cron.my_backup')
+]
 
 IP2LOCATION_DATABASE_PATH = 'C:/Users/user/PropertyWebApp/property/IP2LOCATION-LITE-DB3.BIN/IP2LOCATION-LITE-DB3.BIN'
 
