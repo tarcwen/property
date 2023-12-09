@@ -103,7 +103,6 @@ DJANGO_ADMIN_LOGS_ENABLE = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'propertydb',
         'USER': 'admin',
         'PASSWORD': 'siq8RC3r',
