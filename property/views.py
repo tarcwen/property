@@ -5,7 +5,3 @@ def error_404(request, exception):
 
 def error_500(request):
     return render(request, 'error_pages/500.html', status=500)
-
-def trial(request):
-    call_command('dbbackup')
-    return HttpResponse('db created')

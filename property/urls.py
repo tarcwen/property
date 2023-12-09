@@ -31,6 +31,4 @@ urlpatterns = [
     path('realtors/', include('realtors.urls')),
     path('rating/', include('rating.urls')),
     path('event/', include('event.urls')),
-    path("django-check-seo/", include("django_check_seo.urls")),
-
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

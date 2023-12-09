@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '($wlb^0$advkr!ek74$_q5hdgdhua9vvsfh^+g(h9-m=5@jbij'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     "django_check_seo",
-    'dbbackup',
-    "django_apscheduler",
     'mysite.apps.MysiteConfig',
     'listing.apps.ListingConfig',
     'realtors.apps.RealtorsConfig',
@@ -57,8 +55,6 @@ INSTALLED_APPS = [
     'UserAction',
     'customerCmd',
 ]
-
-SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,16 +99,17 @@ DJANGO_ADMIN_LOGS_ENABLE = True
 
 DATABASES = {
     'default': {
-        'NAME': 'propertydb',
-        'USER': 'admin',
-        'PASSWORD': 'siq8RC3r',
-        'HOST': 'mysql-157245-0.cloudclusters.net',
-        'PORT': '10019',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'propertyDB',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'OPTIONS': {
+            'options': '-c search_path=public',
+        },
     }
 }
-
-DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / "backup/"}
 
 IP2LOCATION_DATABASE_PATH = 'C:/Users/user/PropertyWebApp/property/IP2LOCATION-LITE-DB3.BIN/IP2LOCATION-LITE-DB3.BIN'
 
